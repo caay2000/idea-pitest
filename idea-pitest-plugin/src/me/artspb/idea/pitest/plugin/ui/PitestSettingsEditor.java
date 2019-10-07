@@ -27,8 +27,10 @@ public class PitestSettingsEditor extends SettingsEditor<RunConfigurationBase> i
     private JPanel editor;
     private JComponent anchor;
 
-    private JCheckBox verboseLoggingField = new JCheckBox();
-    private JCheckBox editManuallyField = new JCheckBox();
+    private boolean verbose = false;
+
+    private JCheckBox verboseLoggingField;
+    private JCheckBox editManuallyField;
     private LabeledComponent<TextFieldWithBrowseButton> targetTestsField;
     private LabeledComponent<TextFieldWithBrowseButton> targetClassesField;
     private LabeledComponent<TextFieldWithBrowseButton> excludedClassesField;
@@ -52,6 +54,12 @@ public class PitestSettingsEditor extends SettingsEditor<RunConfigurationBase> i
                 switchPanels(editManuallyField.isSelected());
             }
         });
+        verboseLoggingField.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(@NotNull ActionEvent e) {
+                verbose = !verbose;
+            }
+        });
         // TODO configureClassChooser
         configureDirChooser(reportDirField, "Select Report Directory"); // TODO introduce bundle
         configureDirChooser(sourceDirsField, "Select Source Directory");
@@ -72,7 +80,7 @@ public class PitestSettingsEditor extends SettingsEditor<RunConfigurationBase> i
     @Override
     protected void applyEditorTo(RunConfigurationBase runConfiguration) throws ConfigurationException {
         PitestConfiguration configuration = PitestConfiguration.getOrCreate(runConfiguration);
-        configuration.setVerboseLogging(verboseLoggingField.isSelected());
+        configuration.setVerboseLogging(verbose);
         configuration.setEditManually(editManuallyField.isSelected());
         configuration.setTargetTests(targetTestsField.getComponent().getText());
         configuration.setTargetClasses(targetClassesField.getComponent().getText());

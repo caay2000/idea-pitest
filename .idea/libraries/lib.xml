@@ -4,7 +4,10 @@
       <root url="file://$PROJECT_DIR$/idea-pitest-plugin/lib" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ideaLibSources/pitest-entry-1.4.9-sources.jar!/" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/pitest-command-line-1.4.9-sources.jar!/" />
+    </SOURCES>
     <jarDirectory url="file://$PROJECT_DIR$/idea-pitest-plugin/lib" recursive="false" />
   </library>
 </component>

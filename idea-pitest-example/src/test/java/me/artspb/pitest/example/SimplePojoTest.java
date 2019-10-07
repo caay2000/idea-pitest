@@ -1,13 +1,13 @@
 package me.artspb.pitest.example;
 
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
 
 public class SimplePojoTest {
 
     private SimplePojo pojo;
 
-    @Before
+    @BeforeEach
     public void setUp() throws Exception {
         pojo = new SimplePojo();
     }
