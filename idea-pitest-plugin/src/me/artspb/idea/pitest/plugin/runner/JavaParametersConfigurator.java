@@ -51,6 +51,7 @@ public class JavaParametersConfigurator {
         parameters.add("--historyInputLocation", history);
         parameters.add("--historyOutputLocation", history);
         parameters.add("--timestampedReports=false");
+        parameters.add("--testPlugin=junit5");
         parameters.addParametersString(configuration.getManualParameters());
     }
 

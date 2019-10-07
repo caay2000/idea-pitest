@@ -1,4 +1,4 @@
-<idea-plugin version="2">
+<idea-plugin>
 
     <id>me.artspb.idea.pitest.plugin</id>
     <name>Pitest</name>
